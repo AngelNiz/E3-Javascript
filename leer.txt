@@ -1,0 +1,1 @@
+El código se rompe al recargar la página, hay que abrir la consola, ir a Aplicaciones y eliminar en el localstorage la key, y reiniciar la página.
