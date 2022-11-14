@@ -1,0 +1,112 @@
+@font-face {
+    font-family: Roboto-Black;
+    src: url(fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url(fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* CSS HSL */
+--burgundy: hsla(349, 98%, 24%, 1);
+--maximum-yellow-red: hsla(39, 92%, 59%, 1);
+--ochre: hsla(29, 72%, 50%, 1);
+--flame: hsla(16, 69%, 51%, 1);
+--international-orange-golden-gate-bridge: hsla(3, 67%, 46%, 1);
+}
+
+body {
+    background-color: var(--international-orange-golden-gate-bridge);
+    flex-wrap: wrap;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--maximum-yellow-red);
+    font-family: 'Roboto-Black';
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+
+.card {
+    background-color: var(--flame);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 285px;
+    overflow: hidden;
+    box-shadow: 0 5px 8px var(--ochre);
+    border-radius: 10px;
+}
+
+img {
+    max-width: 300px;
+    max-height: 150px;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--maximum-yellow-red);
+    font-family: 'Roboto-Light';
+}
+
+p {
+    text-align: center;
+    color: var(--maximum-yellow-red);
+    font-family: 'Roboto-Light';
+    flex-wrap: wrap;
+}
+
+label {
+    color: var(--maximum-yellow-red);
+    font-family: 'Roboto-Light';
+}
+
+input{
+    border-radius: 1em;
+    border-style: none;
+    margin-right: 1em;
+}
+
+#boton {
+    text-transform: uppercase;
+    width: 5em;
+    border-radius: 1em;
+    background-color: var(--maximum-yellow-red);
+    color: var(--burgundy);
+    font-family: 'Roboto-Regular';
+}
+
+h3{
+    color: var(--burgundy);
+    font-family: 'Roboto-Regular';
+}
