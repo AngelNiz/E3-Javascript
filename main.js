@@ -42,28 +42,27 @@ let pizzas = [
         ingredientes: ['Queso Muzzarella', ' queso fontana', ' queso gorgonzola', ' y queso parmesano'],
         precio: 1600,
         imagen: 'imagenes/cuatroquesos.jpg',
-    },
+    }
 ]
 
 
-/* Ejercicio 3 */
 
 const FORM = document.getElementById("formulario");
 const INPUT = document.getElementById("input_number");
 const SECTION = document.getElementById("guardar")
 
 
-
-let pizza = JSON.parse(localStorage.getItem("pizza")) || [];
-
-const saveLocalStorage = (pizzas) => {
-    localStorage.setItem("pizza", JSON.stringify(pizzas));
-}
+/* Ejercicio 3 */
 
 
 const pizzaPorID = (value) => pizzas.find((pizza) => pizza.id === value)
 
+let pizza = JSON.parse(localStorage.getItem("pizza")) || [];
 
+
+const saveLocalStorage = () => {
+    return localStorage.setItem("pizza", JSON.stringify(pizzas));
+}
 
 const isEmpty = () => {
     SECTION.innerHTML = 
@@ -73,7 +72,7 @@ const isEmpty = () => {
 }
 
 
-const renderizado = (pizza) => {
+const render = (pizza) => {
 
     if (!pizza) {
         SECTION.innerHTML = `<h2>No pudimos encontrar tu pizza, ingresa un número entre 1 y 6.</h2>`
@@ -89,10 +88,7 @@ const renderizado = (pizza) => {
   }
 }
 
-const renderForm = (todoPizza) => {
-    SECTION.innerHTML = todoPizza.map((pizza) => renderizado(pizza)).join("");
-}
-
+const renderForm = (dataPizza) => dataPizza.map((pizza) => render(pizza)).join("");
 
 const showPizza = (e) => {
     e.preventDefault();
@@ -100,13 +96,12 @@ const showPizza = (e) => {
     if (!idNumero) {
         isEmpty(idNumero)
         return;
-    }   
-    const pedirPizza = pizzaPorID(Number(idNumero))
-
-    pizza = pedirPizza;
-    console.log(pedirPizza);
-    renderizado(pizza);
-    saveLocalStorage(pizza);                
+    } else {
+    const pedirPizza = pizzaPorID(Number(idNumero));
+    pizza = pedirPizza
+    renderForm(render(pizza))
+    saveLocalStorage(pizza);             
+}   
 }
 
 
