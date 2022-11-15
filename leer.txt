@@ -1,1 +1,6 @@
+Actualización 1:
 El código se rompe al recargar la página, hay que abrir la consola, ir a Aplicaciones y eliminar en el localstorage la key, y reiniciar la página.
+
+Actualización 2 (21:10): leí mejor el ejercicio y sí o sí tiene que guardarse en el localStorage al recargar la página.
+
+Actualización 3 (23:12): sigo sin conseguir que se guarde en el LocalStorage, seguiré intentando mañana, si no es así, seguire practicando y veré la resolución del ejercicio cuando este disponible
