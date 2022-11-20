@@ -112,22 +112,7 @@ const initialRender = () => {
     `
   }
 }
-/*     if (!pizza) {
-        SECTION.innerHTML = `<h2>No pudimos encontrar tu pizza, ingresa un número entre 1 y 6.</h2>`
-      } else {
-    SECTION.innerHTML = `
-    <div class="card">
-    <img src="${pizza.imagen}">
-    <h2>Genial! Tu pizza es: ${pizza.nombre}</h2>
-    <p>Los ingredientes son: ${pizza.ingredientes}</p>
-    <h3>Con un precio de: $${pizza.precio}</h3>
-    </div>
-    `
-  } */
 
-
-/* const renderForm = (dataPizza) => dataPizza.map((pizza) => render(pizza)).join(", ");
- */
 const showPizza = (e) => {
     e.preventDefault();
     const idNumero = INPUT.value;
