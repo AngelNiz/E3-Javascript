@@ -54,16 +54,23 @@ const SECTION = document.getElementById("guardar")
 
 /* Ejercicio 3 */
 
+const activePizza = JSON.parse(localStorage.getItem("pizza")) || null;
+
+const saveLocalStorage = (pizza) => {
+    if(!pizza) return
+    localStorage.setItem("pizza",JSON.stringify(pizza))
+}
+
 
 const pizzaPorID = (value) => pizzas.find((pizza) => pizza.id === value)
 
-let pizza = JSON.parse(localStorage.getItem("pizza")) || [];
+/* let pizza = JSON.parse(localStorage.getItem("pizza")) || null;
 
 
 const saveLocalStorage = () => {
     return localStorage.setItem("pizza", JSON.stringify(pizzas));
 }
-
+ */
 const isEmpty = () => {
     SECTION.innerHTML = 
     `
@@ -72,9 +79,40 @@ const isEmpty = () => {
 }
 
 
-const render = (pizza) => {
+const renderCardPizza = (pizza) => {
+    const {nombre, precio, ingredientes, imagen} = pizza;
+    return `
+    <div class="card">
+    <img src="${imagen}">
+    <h2>Genial! Tu pizza es: ${nombre.toUpperCase()}</h2>
+    <p>Los ingredientes son: ${ingredientes.map((ingrediente) => ingrediente).join(", ")}</p>
+    <h3>Con un precio de: $${precio}</h3>
+    </div>
+    `
+}
 
+
+const renderResult = (pizza) => {
     if (!pizza) {
+        SECTION.innerHTML = `<h2>No pudimos encontrar tu pizza, ingresa un número entre 1 y 6.</h2>`
+      } else {
+        SECTION.innerHTML = renderCardPizza(pizza);
+      }
+}
+
+const initialRender = () => {
+  if (!activePizza) {
+    SECTION.innerHTML = `
+    <h2 class = "texto_h2">No hay ninguna pizza guardada en LocalStorage.</h2>
+    `
+  } else {
+    SECTION.innerHTML = `
+    <h2>Última pizza encontrada.</h2>
+    ${renderCardPizza(activePizza)};
+    `
+  }
+}
+/*     if (!pizza) {
         SECTION.innerHTML = `<h2>No pudimos encontrar tu pizza, ingresa un número entre 1 y 6.</h2>`
       } else {
     SECTION.innerHTML = `
@@ -85,11 +123,11 @@ const render = (pizza) => {
     <h3>Con un precio de: $${pizza.precio}</h3>
     </div>
     `
-  }
-}
+  } */
 
-const renderForm = (dataPizza) => dataPizza.map((pizza) => render(pizza)).join("");
 
+/* const renderForm = (dataPizza) => dataPizza.map((pizza) => render(pizza)).join(", ");
+ */
 const showPizza = (e) => {
     e.preventDefault();
     const idNumero = INPUT.value;
@@ -98,15 +136,15 @@ const showPizza = (e) => {
         return;
     } else {
     const pedirPizza = pizzaPorID(Number(idNumero));
-    pizza = pedirPizza
-    renderForm(render(pizza))
-    saveLocalStorage(pizza);             
+    renderResult(pedirPizza);   
+    saveLocalStorage(pedirPizza);
+    FORM.reset();
 }   
 }
 
 
 const init = () => {
-  renderForm(pizza)
+  initialRender();  
   FORM.addEventListener("submit", showPizza);
 }
 

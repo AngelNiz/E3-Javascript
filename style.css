@@ -79,6 +79,17 @@ h2 {
     font-family: 'Roboto-Light';
 }
 
+.texto_h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto-Light';
+    color: var(--maximum-yellow-red);
+}
+section {
+    flex-wrap: wrap;
+    display: flex;
+}
 p {
     text-align: center;
     color: var(--maximum-yellow-red);
